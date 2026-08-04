@@ -1,0 +1,64 @@
+/* Colorway B — "volume-tuned warm". Loaded only when the build sets
+   PUBLIC_COLORWAY=b (BaseLayout stamps data-colorway on <html> and links
+   this file). Same hues and layout as the default build; this layer only
+   turns the accent volume down:
+     1. yellow desaturated ~28% and demoted from every-section wallpaper
+        to page-hero kickers only
+     2. one filled CTA color — the header's Play Online becomes an outline
+        button so orange "Buy" is the only saturated fill
+     3. background step widened from 1.12:1 to 1.39:1 and the dot tile
+        halved, so sections read from value change instead of borders alone
+   All pairs re-checked: ink on #e6c966 9.8:1, ink on #e4d0a9 10.8:1,
+   green text on white 5.6:1. */
+
+html[data-colorway='b'] {
+  --yellow: #e6c666;
+  --paper-dark: #e4d0a9;
+  /* rust darkened one step: 4.13:1 on the new tan at the original value,
+     4.75:1 here (6.62:1 on paper, 7.18:1 on white) */
+  --rust: #8c430d;
+}
+
+html[data-colorway='b'] body {
+  background:
+    radial-gradient(rgba(43, 29, 16, 0.025) 1.1px, transparent 1.1px) 0 0 / 26px 26px,
+    var(--paper);
+}
+
+/* kickers: quiet by default… */
+html[data-colorway='b'] .kicker {
+  background: #f2e8d5;
+  box-shadow: none;
+}
+
+/* …yellow only for the one hero kicker each page leads with */
+html[data-colorway='b'] .hero .kicker,
+html[data-colorway='b'] .k-hero .kicker,
+html[data-colorway='b'] .play-page .kicker,
+html[data-colorway='b'] .lost .kicker {
+  background: var(--yellow);
+  box-shadow: var(--shadow-token-sm);
+}
+
+/* note: the green play-strip's kicker keeps the (quieter) yellow — its
+   page-scoped style outranks this layer, and one yellow accent inside the
+   green anchor block lands within the 1-2-per-page budget anyway */
+
+/* the Coming-next status pill sits on the paper-dark band; the tuned
+   yellow is 1.10:1 against the tuned tan (near-identical luminance), so
+   it goes white here — it's a status label, not an emphasis moment */
+html[data-colorway='b'] .soon-pill {
+  background: var(--card);
+}
+
+/* single filled CTA: header Play Online becomes an outline button */
+html[data-colorway='b'] .nav-cta .btn-play {
+  background: var(--card);
+  color: var(--green);
+}
+
+html[data-colorway='b'] .nav-cta .btn-play:hover,
+html[data-colorway='b'] .nav-cta .btn-play:focus-visible {
+  background: var(--green);
+  color: #fff;
+}

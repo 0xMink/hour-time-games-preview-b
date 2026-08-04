@@ -1,0 +1,1 @@
+import"./hoisted.CY4wR4BV.js";const e=document.querySelector(".game-shell"),a=document.getElementById("game-frame");let t=!1;a?.addEventListener("load",()=>{t=!0,e?.setAttribute("data-state","ready")});window.setTimeout(()=>{t||e?.setAttribute("data-state","failed")},15e3);
